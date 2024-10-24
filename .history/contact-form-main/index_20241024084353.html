@@ -6,9 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="/contact-form-main/styles/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  
   <title>Frontend Mentor | Contact form</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -54,11 +52,11 @@
       <div class="query-type-section">
         <p>Query Type  <span>*</span></p>
         <div class="radio-query-type-section">
-          <div class="general-radio-query-type-section">
+          <div>
             <input type="radio">
             General Enquiry
           </div>
-          <div class="support-radio-query-type-section">
+          <div>
             <input type="radio">
             Support Request
           </div>
@@ -67,21 +65,19 @@
       </div>
       <div class="message-section">
         <p>Message  <span>*</span></p>
-        <textarea name="message-section-text-area" id=""></textarea>
+        <input type="text">
         <p>This field is required</p>
       </div>
       <div class="consent-section">
         <div>
-          <input type="checkbox" id="custom-checkbox">
-          <!-- <span class="custom-checkbox"></span> -->
-          <label for="custom-checkbox">I consent to being contacted by the team  <span>*</span></label>
+          <input type="radio">
+          <p>I consent to being contacted by the team  <span>*</span></p>
         </div>
         <p> To submit this form, please consent to being contacted</p>
       </div>
       <div class="submit-btn-section">
         <button>  
-          Submit
-        </button>
+          Submit</button>
       </div>
     </div>
   </div>

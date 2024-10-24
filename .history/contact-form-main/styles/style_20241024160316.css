@@ -154,15 +154,12 @@ span {
 }
 
 .message-section textarea{
- width: 300%;
+ width: 98%;
  height: 55%;
  border-radius: 5px;
  border: 1px solid var(--Grey500);
- font-size: 13px;
- resize: none; /* Disable resizing */
- box-sizing: border-box; 
+ font-size: 15px;
  outline: none;
- padding: 5px 10px;
 }
 
 .consent-section{
@@ -202,7 +199,7 @@ span {
 
 .submit-btn-section button{
   width: 100%;
-  height: 30px;
+  height: 70%;
   border: 1px var(--Green600);
   color: var(--White);
   background-color: var(--Green600);

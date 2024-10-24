@@ -138,10 +138,41 @@ span {
   width: 48.8%;
 }
 
-/* .consent-section input[type="checkbox"]:checked{
-  background-color: hsl(169, 82%, 27%);
-} */
+.consent-section input[type="radio"] {
+  display: none;
+}
 
+/* Create a custom square radio button */
+.custom-radio {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid var(--Grey500);
+  border-radius: 0; /* Square shape */
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px; /* Space between radio and label text */
+}
+
+/* Check mark style */
+.custom-radio::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  width: 3px;
+  height: 6px;
+  border: solid var(--Green600);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none; /* Hide check mark initially */
+}
+
+.consent-section input[type="radio"]:checked + .custom-radio::after {
+  display: block;
+  
+}
 
 .message-section{
   height: 120px;
@@ -153,16 +184,11 @@ span {
  padding: 6px 0;
 }
 
-.message-section textarea{
- width: 300%;
+.message-section input{
+ width: 98%;
  height: 55%;
  border-radius: 5px;
  border: 1px solid var(--Grey500);
- font-size: 13px;
- resize: none; /* Disable resizing */
- box-sizing: border-box; 
- outline: none;
- padding: 5px 10px;
 }
 
 .consent-section{
@@ -179,10 +205,7 @@ span {
 
 .consent-section input{
   margin: 0 8px 0 0;
-}
-
-.consent-section label{
-  cursor: pointer;
+  
 }
 
 .consent-section div{
@@ -202,7 +225,7 @@ span {
 
 .submit-btn-section button{
   width: 100%;
-  height: 30px;
+  height: 70%;
   border: 1px var(--Green600);
   color: var(--White);
   background-color: var(--Green600);
