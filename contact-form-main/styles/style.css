@@ -35,7 +35,7 @@ span {
   flex-direction: column;
   border: 1px var(--Grey500);
   background-color: var(--White);
-  height: 530px;
+  height: auto;
   width: 430px;
   border-radius: 10px;
   padding: 20px;
@@ -65,11 +65,16 @@ span {
  border: 1px solid var(--Grey500);
  border-radius: 5px;
  padding: 10px 13px;
+ /* width: 1px; */
  outline: none;
 }
 
 .first-name-section, .last-name-section{
   width: 100%;
+}
+
+.last-name-section input{
+  width: 183px;
 }
 
 .name-section input:focus{
@@ -123,24 +128,31 @@ span {
 }
 
 .query-type-section .radio-query-type-section{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
 }
 
 .general-radio-query-type-section ,.support-radio-query-type-section{
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 32px;
+  height: 35px;
   border-radius: 5px;
   border: 1px solid var(--Grey500);
-  width: 48.8%;
+  /* padding: 0 5px; */
+  cursor: pointer;
 }
 
-/* .consent-section input[type="checkbox"]:checked{
-  background-color: hsl(169, 82%, 27%);
-} */
+.general-radio-query-type-section {
+  width: 195px;
+}
+
+
+.radio-query-type-section input {
+  margin: 0 10px 0 15px;
+}
+
 
 
 .message-section{
@@ -154,8 +166,8 @@ span {
 }
 
 .message-section textarea{
- width: 300%;
- height: 55%;
+ width: 100%;
+ height: 60%;
  border-radius: 5px;
  border: 1px solid var(--Grey500);
  font-size: 13px;
@@ -179,6 +191,8 @@ span {
 
 .consent-section input{
   margin: 0 8px 0 0;
+  cursor: pointer;
+  
 }
 
 .consent-section label{
@@ -215,6 +229,11 @@ span {
 .submit-btn-section button:hover{
   background-color: var(--Grey900);
 
+}
+
+.require-field-message{
+  display: none;
+  color: var(--Red);
 }
 
 
