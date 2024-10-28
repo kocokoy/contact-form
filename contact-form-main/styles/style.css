@@ -148,6 +148,11 @@ span {
   width: 195px;
 }
 
+.query-type-radio-clicked{
+  border: 1px solid var(--Green600);
+  background-color: hsla(169, 82%, 27%, 0.1);;
+}
+
 
 .radio-query-type-section input {
   margin: 0 10px 0 15px;

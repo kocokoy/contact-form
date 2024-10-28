@@ -2,8 +2,10 @@ const contactFormButton = document.querySelector('.submit-btn');
 const firstNameElement = document.querySelector('.jsFirstNameSection');
 const lastNameElement = document.querySelector('.jsLastNameSection');
 const emailElement = document.querySelector('.jsEmailSection');
+const generalSectionElement = document.querySelector('.jsGeneralRadioQueryTypeSection');
+const supportSectionElement = document.querySelector('.jsSupportRadioQueryTypeSection');
 const generalRadioElement = document.querySelector('.jsGeneralRadio');
-const RadioElement = document.querySelector('.jsRadio');
+const supportRadioElement = document.querySelector('.jsSupportRadio');
 
 let firstName = '';
 
@@ -16,17 +18,36 @@ contactFormButton.addEventListener('click', () => {
   console.log(firsNameValue);
   console.log(lastNameValue);
   console.log(emailValue);
-})
+});
 
-RadioElement.addEventListener('click',() => {
-  console.log(RadioElement.checked);
-  if(!RadioElement.checked){
-    RadioElement.checked = true;
+let generalRadioChecked = false;
+let supportRadioChecked = false;
+
+generalRadioElement.addEventListener('click', () => {
+  
+  if(generalRadioChecked){
+    generalSectionElement.classList.remove('query-type-radio-clicked')
+    generalRadioElement.checked = false;
+    generalRadioChecked = false;
+  }else{
+    generalSectionElement.classList.add('query-type-radio-clicked');
+    supportSectionElement.classList.remove('query-type-radio-clicked');
+    supportRadioElement.checked = false;
+    supportRadioChecked = false;
+    generalRadioChecked = true;
   }
+});
 
-  if(RadioElement.checked){
-    RadioElement.checked = false;
+supportRadioElement.addEventListener('click', () => {
+  if(supportRadioChecked){
+    supportSectionElement.classList.remove('query-type-radio-clicked');
+    supportRadioElement.checked = false;
+    supportRadioChecked = false;
+  }else{
+    supportSectionElement.classList.add('query-type-radio-clicked');
+    generalSectionElement.classList.remove('query-type-radio-clicked')
+    generalRadioElement.checked = false;
+    generalRadioChecked = false;
+    supportRadioChecked = true;
   }
-
- 
-})
+});
