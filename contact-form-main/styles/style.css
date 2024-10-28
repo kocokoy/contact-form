@@ -23,6 +23,7 @@ span {
   font-size: 12px;
 }
 
+
 .container{
   display: flex;
   align-items: center;
@@ -238,6 +239,10 @@ span {
 
 .require-field-message{
   display: none;
+}
+
+.alert-require-field-message{
+  display: block;
   color: var(--Red);
 }
 

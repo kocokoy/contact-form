@@ -6,22 +6,44 @@ const generalSectionElement = document.querySelector('.jsGeneralRadioQueryTypeSe
 const supportSectionElement = document.querySelector('.jsSupportRadioQueryTypeSection');
 const generalRadioElement = document.querySelector('.jsGeneralRadio');
 const supportRadioElement = document.querySelector('.jsSupportRadio');
+const messageSectionTextAreaElement = document.querySelector('.jsMessageSectionTextArea');
+const consentSectionElement = document.querySelector('.jsConsentCheckbox');
+const requiredFieldsElement = document.querySelectorAll('.require-field-message');
 
 let firstName = '';
+let generalRadioChecked = false;
+let supportRadioChecked = false;
 
 
 contactFormButton.addEventListener('click', () => {
   const firsNameValue = firstNameElement.value;
   const lastNameValue = lastNameElement.value;
   const emailValue = emailElement.value;
+  const messageValue = messageSectionTextAreaElement.value;
+  const consentValue = consentSectionElement.checked;
+  const generalRadioValue = generalRadioElement.checked;
+  
 
-  console.log(firsNameValue);
-  console.log(lastNameValue);
-  console.log(emailValue);
+
+  if(!(firsNameValue && lastNameValue && emailValue && messageValue && consentValue && generalRadioValue)){
+
+    let arr = [firsNameValue,lastNameValue,emailValue,messageValue,consentValue,generalRadioValue];
+
+    // console.log(arr.filter(ele => ele === '' || ele === false));
+    requiredFieldsElement.forEach((element) => {
+      element.classList.add('alert-require-field-message');
+      console.log(element);
+    })
+  }else{
+    alert('submitted');
+    requiredFieldsElement.forEach((element) => {
+      element.classList.remove('alert-require-field-message');
+    })
+  }
+
 });
 
-let generalRadioChecked = false;
-let supportRadioChecked = false;
+
 
 generalRadioElement.addEventListener('click', () => {
   
