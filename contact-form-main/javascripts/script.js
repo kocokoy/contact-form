@@ -9,6 +9,7 @@ const supportRadioElement = document.querySelector('.jsSupportRadio');
 const messageSectionTextAreaElement = document.querySelector('.jsMessageSectionTextArea');
 const consentSectionElement = document.querySelector('.jsConsentCheckbox');
 const requiredFieldsElement = document.querySelectorAll('.require-field-message');
+const alertBadgeElement = document.querySelector('.alert-badge');
 
 let firstName = '';
 let generalRadioChecked = false;
@@ -22,23 +23,39 @@ contactFormButton.addEventListener('click', () => {
   const messageValue = messageSectionTextAreaElement.value;
   const consentValue = consentSectionElement.checked;
   const generalRadioValue = generalRadioElement.checked;
+  const supportRadioValue = supportRadioElement.checked;
   
 
 
-  if(!(firsNameValue && lastNameValue && emailValue && messageValue && consentValue && generalRadioValue)){
+  if(!(firsNameValue && lastNameValue && emailValue && messageValue && consentValue && (generalRadioValue || supportRadioValue))){
 
-    let arr = [firsNameValue,lastNameValue,emailValue,messageValue,consentValue,generalRadioValue];
+    let arr = [firsNameValue,lastNameValue,emailValue,messageValue,consentValue,generalRadioValue,supportRadioValue];
 
     // console.log(arr.filter(ele => ele === '' || ele === false));
     requiredFieldsElement.forEach((element) => {
       element.classList.add('alert-require-field-message');
-      console.log(element);
     })
   }else{
-    alert('submitted');
+    setTimeout(() => {
+      alertBadgeElement.classList.add('show-alert'); 
+    }, 100);
+    setTimeout(() => {
+      alertBadgeElement.classList.remove('show-alert'); 
+    }, 3000);
     requiredFieldsElement.forEach((element) => {
       element.classList.remove('alert-require-field-message');
     })
+
+    firstNameElement.value = '';
+    lastNameElement.value = '';
+    emailElement.value = '';
+    generalSectionElement.classList.remove('query-type-radio-clicked');
+    supportSectionElement.classList.remove('query-type-radio-clicked');
+    messageSectionTextAreaElement.value = '';
+    supportRadioElement.checked = false;
+    supportRadioValue.checked = false;
+    consentSectionElement.checked = false;
+
   }
 
 });
